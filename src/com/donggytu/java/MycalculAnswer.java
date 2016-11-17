@@ -4,12 +4,12 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class myCall {
+public class MycalculAnswer {
 
 	
 	public static void main(String[] args) {
 		
-		System.out.println(cal("3+7*2"));
+		System.out.println(cal("5/5"));
 		
 	}
 	
@@ -71,7 +71,7 @@ public class myCall {
 				if( postFix.get(i).charAt(0) == operationCode[j]){
 					calStack.pop();
 					
-					int s2, s1;
+					double s2, s1;
 					String rs;
 					
 					s2 = Integer.parseInt(calStack.pop());
@@ -111,11 +111,6 @@ public class myCall {
 		}
 		
 		return calStack.peek();
-		
-		
-		
-		
-		
 		
 	
 	
