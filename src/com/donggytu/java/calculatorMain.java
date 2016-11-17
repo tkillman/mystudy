@@ -3,8 +3,39 @@ package com.donggytu.java;
 import java.util.Scanner;
 
 public class calculatorMain {
-   public static void main(String [] args ) {
-      String inputVal;
+   
+	
+	   
+    public static int[] StringArrToInterArr(String [] splitValues){
+   	 
+    	int [] num =new int[10];
+   	 for(int cnt=0; cnt<splitValues.length;cnt++){
+            try{
+               num[cnt] = Integer.parseInt(splitValues[cnt]);
+               System.out.println(num[cnt]);
+            }catch(java.lang.NumberFormatException e){
+           
+            System.out.println("입력범위 초과: -2147483648~2147483647");
+
+            }
+         }
+   	 
+   	 return num;
+   	 
+    }
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String [] args ) {
+      
+	  String inputVal;
       String YesOrNo;
       boolean yesno=true;
       
@@ -15,6 +46,7 @@ public class calculatorMain {
          
          inputVal = inputVal.replace(" ", "");
          
+     
          if(inputVal.startsWith("-")){
             // 첫번째 입력되는 수는 음수를 지원하지 않는다.
             System.out.println("음수는 입력되지 않습니다.");
@@ -25,8 +57,6 @@ public class calculatorMain {
          
          String [] splitValues = inputVal.split("[\\+\\-\\*\\/\\=]");
          
-
-         
          
          
          
@@ -36,15 +66,29 @@ public class calculatorMain {
             System.out.println(splitValues[cnt]);
          }         
          
-         int [] num = {0,0,0,0,0,0,0,0,0,0};
-         for(int cnt=0; cnt<splitValues.length;cnt++){
+        
+         //int [] num =new int[10];
+         
+         
+         
+         int [] num = new int[splitValues.length];
+         //문자열 배열을 정수 배열로 바꾸는 코드 입력
+         /*num = StringArrToInterArr(splitValues);*/
+         
+         
+         
+        /* for(int cnt=0; cnt<splitValues.length;cnt++){
             try{
                num[cnt] = Integer.parseInt(splitValues[cnt]);
                System.out.println(num[cnt]);
             }catch(java.lang.NumberFormatException e){
-            
+           
+            System.out.println("입력범위 초과: -2147483648~2147483647");
+
             }
-         }
+         }//함수로 바꿔보기
+*/      
+         
          
          System.out.println(num[0]);
          

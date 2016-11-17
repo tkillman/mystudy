@@ -8,7 +8,7 @@ public class Mycalculator1 {
 	
 	public static void main(String[] args) {
 		
-		System.out.println(cal("5/2"));
+		System.out.println(cal("3+5*7"));
 	}
 	
 	public static String cal(String content){
@@ -117,8 +117,9 @@ public class Mycalculator1 {
 			
 			
 		}
-		return calStack.peek();
 		
+		
+		return calStack.peek();
 				
 		}
 		
