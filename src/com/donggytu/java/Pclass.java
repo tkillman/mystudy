@@ -98,6 +98,8 @@ public class Pclass {
          
       }while(inputVal.equals("y") || inputVal.equals("Y") );   
       System.out.println("종료되었습니다.");   
+      
+      
    }   
    
 }
