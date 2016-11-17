@@ -1,11 +1,9 @@
 package com.donggytu.java;
 
-public class TestSorce {
+public class Sorcetree {
 
 	public static void main(String[] args) {
-
-
-			System.out.println("hello sorcetree");
+		// TODO Auto-generated method stub
 
 	}
 
