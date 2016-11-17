@@ -2,17 +2,33 @@ package com.donggytu.java;
 
 import java.util.Scanner;
 
-public class Pclass {
+public class calculatorMain {
    public static void main(String [] args ) {
       String inputVal;
+      String YesOrNo;
+      boolean yesno=true;
+      
       do{
          System.out.println("Input:");
          Scanner scan = new Scanner(System.in);
          inputVal = scan.nextLine();
          
+         inputVal = inputVal.replace(" ", "");
+         
+         if(inputVal.startsWith("-")){
+            // 첫번째 입력되는 수는 음수를 지원하지 않는다.
+            System.out.println("음수는 입력되지 않습니다.");
+            continue;
+         }
+         
          System.out.println(inputVal);
          
          String [] splitValues = inputVal.split("[\\+\\-\\*\\/\\=]");
+         
+
+         
+         
+         
          
          System.out.println(splitValues.length);
          
@@ -26,7 +42,7 @@ public class Pclass {
                num[cnt] = Integer.parseInt(splitValues[cnt]);
                System.out.println(num[cnt]);
             }catch(java.lang.NumberFormatException e){
-               System.out.println("입력범위 초과: -2147483648~2147483647");
+            
             }
          }
          
@@ -44,7 +60,7 @@ public class Pclass {
             System.out.println(sign);
          }
          
-         if(num[2] == 0 && sign == '/') {
+         if(num[1] == 0 && sign == '/') {
             System.out.println("0으로 나누기는 불가능합니다. 다시 입력해주세요!!");
             return;
          }
@@ -71,35 +87,31 @@ public class Pclass {
             break;
          }
          System.out.println("yes(y) or no(n)");
+         //YesOrNo = scan.nextLine();
          inputVal = scan.nextLine();
-
-         if(inputVal.equals("y") || inputVal.equals("Y")){
+/*         if(inputVal.equals("y") || inputVal.equals("Y")){
             continue;
          }
          else if(inputVal.equals("n") || inputVal.equals("N")){
             break;
-         }
+         }*/
          
          switch(inputVal){
-         case "y":
+         case "y": case "Y":
+            //System.out.println("y");
+            yesno=true;
             continue;
             //break;
-         case "n":
-            break;
-         case "Y":
-            continue;
-            //break;
-         case "N":
+         case "n": case "N":
+            //System.out.println("n");
+            yesno=false;
             break;
          default:
             break;
          }
          
-         
-      }while(inputVal.equals("y") || inputVal.equals("Y") );   
+      }while( yesno );   
       System.out.println("종료되었습니다.");   
-      
-      
    }   
    
 }
