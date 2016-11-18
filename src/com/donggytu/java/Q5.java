@@ -10,3 +10,9 @@ public class Q5 {
 		
 	}
 }
+
+class Q6{
+	
+	static int num;
+	
+}
