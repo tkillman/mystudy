@@ -2,14 +2,50 @@ package com.silentpeople.getset;
 
 public class Cat1 {
 	
+	public int age1 = 1;
+	protected int age2 = 2;
+	int age3 =3;
+	private int age4 =4;
+	
+	
+	public void agePrint(){
+			
+		System.out.println(age1);
+		System.out.println(age2);
+		System.out.println(age3);
+		System.out.println(age4);
+		
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	
 	int age;
 	String name;
 	
 	private String spices;
 	public  int price;
 	static int catCount;
+	final double pi= 3.14;
+	
+	public void test1(){
+		System.out.println(pi);
+		
+	}
 	
 	
+	private void test2(){
+		
+		System.out.println(pi);
+	}
 	
 	public void setAge(int age){
 		
@@ -56,4 +92,4 @@ public class Cat1 {
 	
 	
 	
-}
+*/}
