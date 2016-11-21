@@ -18,11 +18,18 @@ public class GetSet {
 		/*System.out.println(c1.getAge());*/
 		
 		
-		c1.setSpices("mix");
+		/*c1.setSpices("mix");*/
 		
-		System.out.println(c1.getSpices());
+		/*System.out.println(c1.getSpices());*/
+		
+		Cat1.catCount = 50;
 		
 		
+		System.out.println(Cat1.catCount);
+		
+		Cat1 st = new Cat1();
+		
+		System.out.println(st.catCount);
 		
 		
 		
