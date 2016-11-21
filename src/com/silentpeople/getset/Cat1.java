@@ -2,10 +2,10 @@ package com.silentpeople.getset;
 
 public class Cat1 {
 	
-	public int age1 = 1;
-	protected int age2 = 2;
-	int age3 =3;
-	private int age4 =4;
+	public int age1 = 1; //
+	protected int age2 = 2; //
+	int age3 =3;//
+	private int age4 =4; 
 	
 	
 	public void agePrint(){
