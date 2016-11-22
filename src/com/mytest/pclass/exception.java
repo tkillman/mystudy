@@ -1,4 +1,4 @@
-package com.donggytu.java;
+package com.mytest.pclass;
 
 public class exception {
 

@@ -1,4 +1,4 @@
-package com.donggytu.java;
+package com.mytest.pclass;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
