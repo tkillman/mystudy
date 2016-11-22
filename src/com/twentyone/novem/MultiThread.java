@@ -8,11 +8,5 @@ public class MultiThread {
 	 * ÀÚ¹Ù´Â byte code.
 	 
 	 
-	 
-	 
-	 
-	       
-	    
-	 	
 }
 
