@@ -27,7 +27,8 @@ public class HasSetTest {
 		
 		System.out.println(hs1.toString()); 
 		
-		Iterator i_hs1 = (Iterator)hs1.iterator();
+		
+		Iterator i_hs1 = hs1.iterator();
 		
 		
 		
