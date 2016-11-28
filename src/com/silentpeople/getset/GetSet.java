@@ -44,7 +44,7 @@ public class GetSet {
 		System.out.println(sp.age1);
 		System.out.println(sp.age2);
 		System.out.println(sp.age3);
-		System.out.println(sp.age4);  //동일 클래스 내에서 접근 가능
+		//System.out.println(sp.age4);  //동일 클래스 내에서 접근 가능
 		
 		
 		

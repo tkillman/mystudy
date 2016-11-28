@@ -11,12 +11,13 @@ import java.awt.image.*;
 public class Game {
 
 	public static void main(String[] ar) {
+		
 		game_Frame fms = new game_Frame();
 
 	}
 }
 
-class game_Frame extends JFrame implements KeyListener, Runnable {
+class game_Frame extends JFrame implements KeyListener, Runnable { // game_frame
 
 	int f_width;
 	int f_height;
@@ -72,7 +73,7 @@ class game_Frame extends JFrame implements KeyListener, Runnable {
 
 	Explosion ex; // 폭발 이펙트용 클래스 접근 키
 
-	game_Frame() {
+	game_Frame() { // game_frame() 생성자 Frame을 설정
 		init();
 		start();
 
@@ -89,7 +90,7 @@ class game_Frame extends JFrame implements KeyListener, Runnable {
 		setVisible(true);
 	}
 
-	public void init() {
+	public void init() { //초기값
 		x = 100;
 		y = 100;
 		f_width = 1200;

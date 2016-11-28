@@ -10,9 +10,9 @@ public class Tiger1 {
 			Cat1 sp = new Cat1();
 			
 			System.out.println(sp.age1); // 다른 패키지도 가능
-			System.out.println(sp.age2); //
-			System.out.println(sp.age3); //
-			System.out.println(sp.age4); //
+			//System.out.println(sp.age2); //
+			//System.out.println(sp.age3); //
+			//System.out.println(sp.age4); //
 			
 		
 		}
