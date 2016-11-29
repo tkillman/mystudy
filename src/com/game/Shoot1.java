@@ -155,7 +155,11 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
 	   m1.moveMs();//미사일 움직임 
 	  }
   
+<<<<<<< HEAD
   for(int i = 0; i < msList2.size(); i++) {//미사일 객체들의 이미지 표현
+=======
+  for(int i = 0; i < msList2.size(); i++) {
+>>>>>>> 73fe4b969b34234bd04e0337bccfe751d8311711
 	   Ms2 m2 = (Ms2)msList2.get(i);
 	   gs.setColor(Color.blue);// 미사일 색깔
 	   gs.drawOval(m2.x, m2.y, m2.w, m2.h);// 미사일 이미지
