@@ -146,7 +146,7 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
 	   m1.moveMs();
 	  }
   
-  for(int i = 0; i < msList.size(); i++) {
+  for(int i = 0; i < msList2.size(); i++) {
 	   Ms2 m2 = (Ms2)msList2.get(i);
 	   gs.setColor(Color.blue);
 	   gs.drawOval(m2.x, m2.y, m2.w, m2.h);
