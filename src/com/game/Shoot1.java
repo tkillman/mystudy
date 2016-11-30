@@ -38,7 +38,7 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
  public void run() { // 멀티 쓰레드를 돌리기 위한 run 메소드
   try {
    int msCnt = 0; // 초기 미사일값
-   int enCnt = 0; // 초기 적군 값
+   int enCnt = 0; // 초
    while(true) {
     Thread.sleep(10); // 시간 차
     
