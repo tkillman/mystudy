@@ -51,8 +51,8 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
       fireMs(); // 미사일 발사
       msCnt = 0; // 미사일 갯수 0 초기화
      }
-     msCnt += 10; //미사일 10개 더함
-     enCnt += 10; // 적군 10개 더함
+     msCnt += 10; // 쓰레드가 한번 돌 때마다 10씩 증가 미사일 생성 속도를 조절
+     enCnt += 10; // 쓰레드가 한번 돌 때마다 10씩 증가 적군 생성 속도를 조절
      keyControl(); // 키 이벤트
      crashChk(); // 충돌 이벤트
     }
@@ -65,7 +65,7 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
  public void fireMs() { //미사일 발사 메소드
   if(fire) { // 발사가 true 되면 실행
   
-	  if(msList.size() < 100) { // 미사일 갯수가 100개 이하면
+	if(msList.size() < 100) { // 미사일 갯수가 100개 이하면
     Ms m = new Ms(this.x, this.y); // 미사일 객체 생성, 미사일 생성 위치는 플레이어 위치 x,y
     msList.add(m); // 미사일 객체를 리스트에 담는다.
    }
@@ -93,34 +93,50 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
  
  public void crashChk() { // 충돌 메소드
   Graphics g = this.getGraphics(); // 그래픽 표현을 위한 Graphics 객체 생성
-  Polygon p = null; // 그래픽이 겹치는지 확인 할 Polygon 객체 생성
+  Polygon p = null; Polygon p1 = null; Polygon p2 = null;
+  // 그래픽이 겹치는지 확인 할 Polygon 객체 생성
   for(int i = 0; i < msList.size(); i++) { // 미사일 객체 전부 검색
-   Ms m = (Ms)msList.get(i); //
+   Ms m = (Ms)msList.get(i);
+   Ms1 m1 = (Ms1)msList1.get(i);
+   Ms2 m2 = (Ms2)msList2.get(i); //
    for(int j = 0; j < enList.size(); j++) { // 적군 객체 전부 검색
     Enemy1 e = (Enemy1)enList.get(j);
-    int[] xpoints = {m.x, (m.x + m.w), (m.x + m.w), m.x}; // 미사일 x 위치값 int[]배열로 받음
-    int[] ypoints = {m.y, m.y, (m.y + m.h), (m.y + m.h)}; // 미사일 y 위치값 int[]배열로 받음
+    int[] xpoints = {m.x, (m.x + m.w), (m.x + m.w), m.x};
+    int[] xpoints1 = {m1.x, (m1.x + m1.w), (m1.x + m1.w), m1.x};
+    int[] xpoints2 = {m2.x, (m2.x + m2.w), (m2.x + m2.w), m2.x};// 미사일 x 위치값 int[]배열로 받음
+    int[] ypoints = {m.y, m.y, (m.y + m.h), (m.y + m.h)};
+    int[] ypoints1 = {m1.y, m1.y, (m1.y + m1.h), (m1.y + m1.h)};
+    int[] ypoints2 = {m2.y, m2.y, (m2.y + m2.h), (m2.y + m2.h)};// 미사일 y 위치값 int[]배열로 받음
     p = new Polygon(xpoints, ypoints, 4); // Polygon에 인스턴스 할당
+    p1 = new Polygon(xpoints1, ypoints1, 4);
+    p2 = new Polygon(xpoints2, ypoints2, 4);
+    
     
     if(p.intersects((double)e.x, (double)e.y, (double)e.w, (double)e.h)) { //적군 위치와 겹치는지 확인
      msList.remove(i); // 겹치면 미사일 제거
-     e.hp--; // 
-     if(e.hp ==0){ 
-     enList.remove(j);} //적군 제거
-    }
-   }
-  }
-  for(int i = 0; i < enList.size(); i++) { // 적군 객체 전부 검색
+     enList.remove(j); }
+     if(p1.intersects((double)e.x, (double)e.y, (double)e.w, (double)e.h)) { //적군 위치와 겹치는지 확인
+         msList1.remove(i); // 겹치면 미사일 제거
+         enList.remove(j);}
+     if(p2.intersects((double)e.x, (double)e.y, (double)e.w, (double)e.h)) { //적군 위치와 겹치는지 확인
+             msList2.remove(i); // 겹치면 미사일 제거
+             enList.remove(j);}
+    
+   } //j 반복문 끝남
+  } // i 반복문 끝남
+   
+   for(int i = 0; i < enList.size(); i++) { // 적군 객체 전부 검색
    Enemy1 e = (Enemy1)enList.get(i);
    int[] xpoints = {x, (x + xw), (x + xw), x}; // 플레이어 x 위치값
    int[] ypoints = {y, y, (y + xh), (y + xh)}; // 플레이어 y 위치값
+   
    p = new Polygon(xpoints, ypoints, 4); // p에 적군 위치 polygon 인스턴스 할당
    if(p.intersects((double)e.x, (double)e.y, (double)e.w, (double)e.h)) { //겹치는지 확인
     enList.remove(i); //겹치면 적군 제거
     start = false; // start 값을 false로 바꿈
     end = true; // end 값을 true 로 바꿈
-   }
-  }
+   } //if 문 종료
+  } //for문 종료
  }
  
  public void draw() { // 이미지를 위한 draw 메소드 정의
@@ -301,9 +317,9 @@ int hp =5;
  int w = 10;
  int h = 10;
 
- public Enemy1(int x, int y) { // 적군 생성 위치
-  this.x = x;
-  this.y = y;
+ public Enemy1(int rx, int ry) { // 적군 생성 위치
+  this.x = rx; 
+  this.y = ry;
  }
  
  public void moveEn() { // 적군 움직임
