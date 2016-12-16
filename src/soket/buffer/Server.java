@@ -27,8 +27,11 @@ public class Server {
 			sender.write(sendMsg.getBytes()); // 클라이언트로 환영 메시지 전송하기 byte형식
 			System.out.println("send data: " + sendMsg); //클라이언트로 보낸 데이터 화면에 출력하기
 
+			
 			InputStream receiver = cliSock1.getInputStream();
-			InputStreamReader isr=new InputStreamReader(receiver); //클라이언트로부터 수신된 데이터를 담을 공간(변수)
+			
+			InputStreamReader isr=new InputStreamReader(receiver);     //클라이언트로부터 수신된 데이터를 담을 공간(변수)
+			
 			BufferedReader br= new BufferedReader(isr);
 			
 			String recvMsg = br.readLine();
