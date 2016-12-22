@@ -22,11 +22,12 @@ public class Server {
 			Socket cliSock1 = servSock.accept();//서버소켓으로 찾아온 고객을 고객 전용 소켓으로 연결시켜줌
 			
 			OutputStream sender = cliSock1.getOutputStream(); // 서버소켓을 찾아온 사람에게 보낼 stream
-			String sendMsg = "Welcome!!"; // 클라이언트로 보낼 환영 메시지
+			String sendMsg = "Welcome!! to server"; // 클라이언트로 보낼 환영 메시지
 			
 			sender.write(sendMsg.getBytes()); // 클라이언트로 환영 메시지 전송하기 byte형식
-			System.out.println("send data: " + sendMsg); //클라이언트로 보낸 데이터 화면에 출력하기
+			//System.out.println("send data: " + sendMsg); //클라이언트로 보낸 데이터 화면에 출력하기
 
+			
 			InputStream receiver = cliSock1.getInputStream();
 			InputStreamReader isr=new InputStreamReader(receiver); //클라이언트로부터 수신된 데이터를 담을 공간(변수)
 			BufferedReader br= new BufferedReader(isr);

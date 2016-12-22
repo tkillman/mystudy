@@ -24,7 +24,8 @@ public class Client {
 			String recvMsg = new String(recvBuf); //byte배열을 String으로 변환하는 작업
 			System.out.println(recvMsg); //가져온거 출력하기
 			
-			String sendBuf ="Nice to meet you^^"; // 서버로 보낼 안녕메세지
+			
+			String sendBuf ="Nice to meet you^^ i am Client"; // 서버로 보낼 안녕메세지
 			sender.write(sendBuf.getBytes());	//서버로 메시지 보내기
 			
 		}
