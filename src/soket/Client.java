@@ -23,10 +23,11 @@ public class Client {
 			byte [] recvBuf = new byte[100];//수신데이터를 담을 저장공간 
 			receive.read(recvBuf); //소켓에서 수신데이터 가져오기
 			String recvMsg = new String(recvBuf); //byte배열을 String으로 변환하는 작업
+			
 			System.out.println(recvMsg); //가져온거 출력하기
 			
-			String sendBuf ="Nice to meet you^^"; // 서버로 보낼 안녕메세지
-			sender.write(sendBuf.getBytes());	//서버로 메시지 보내기
+			String sendMsg ="Nice to meet you^^"; // 서버로 보낼 안녕메세지
+			sender.write(sendMsg.getBytes());	//서버로 메시지 보내기
 			
 		}
 		catch (Exception e) {
