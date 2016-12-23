@@ -23,7 +23,7 @@ public class Server {
 			
 			String sendMsg = "Welcome!!"; // 클라이언트로 보낼 환영 메시지
 			sender.write(sendMsg.getBytes()); // 클라이언트로 환영 메시지 전송하기
-			System.out.println("send data: " + sendMsg); //클라이언트로 보낸 데이터 화면에 출력하기
+			//System.out.println("send data: " + sendMsg); //클라이언트로 보낸 데이터 화면에 출력하기
 
 			
 			
