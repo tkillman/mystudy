@@ -81,6 +81,7 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
 	   }
   }
  }
+ 
  public void enCreate() { // 적군 생성 메소드
   for(int i = 0; i < 9; i++) { // 랜덤하게
    double rx = Math.random() * (w - xw); // 적군 생성 x 위치
@@ -139,6 +140,7 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
   } //for문 종료
  }
  
+
  public void draw() { // 이미지를 위한 draw 메소드 정의
   Graphics gs = bi.getGraphics(); // 그래픽을 위한 gs 값 설정
   gs.setColor(Color.white); // 배경 화면색
@@ -183,9 +185,10 @@ public class Shoot1 extends JFrame implements Runnable, KeyListener {
   
   
   gs.setColor(Color.black); // 적군 색깔 설정
+  
   for(int i = 0; i < enList.size(); i++) { // 적군 객체를 모두 불러옴
    Enemy1 e = (Enemy1)enList.get(i); 
-   gs.fillRect(e.x, e.y, e.w, e.h); //적군 크기 지정
+    gs.fillRect(e.x, e.y, e.w, e.h); //적군 생성 위치 및 크기 지정
    if(e.y > h) enList.remove(i); // 적군이 설정 h보다 높아지면 사라지게 만듬
    e.moveEn(); //적군 움직임
   }
